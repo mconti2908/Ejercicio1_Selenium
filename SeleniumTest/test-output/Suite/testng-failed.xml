@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test6(failed)">
+    <classes>
+      <class name="MauroC.SeleniumTest.Multiple_Accounts">
+        <methods>
+          <include name="initialize"/>
+          <include name="account" invocation-numbers="0 1 2"/>
+          <include name="finish"/>
+        </methods>
+      </class> <!-- MauroC.SeleniumTest.Multiple_Accounts -->
+    </classes>
+  </test> <!-- Test6(failed) -->
+</suite> <!-- Failed suite [Suite] -->
