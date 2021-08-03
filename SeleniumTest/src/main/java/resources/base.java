@@ -58,7 +58,7 @@ public class base {
 			driver = new InternetExplorerDriver();
 		}
 		
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
 	

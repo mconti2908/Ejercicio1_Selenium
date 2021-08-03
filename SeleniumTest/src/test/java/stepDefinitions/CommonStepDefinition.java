@@ -79,7 +79,7 @@ public class CommonStepDefinition extends base{
 							tabs.getNew();
 						}
 					}
-				}
+				
 
 				Thread.sleep(3000L);
 
@@ -90,7 +90,7 @@ public class CommonStepDefinition extends base{
 						driver.switchTo().frame(0);
 					}
 
-					Thread.sleep(3000L);
+					
 					Actions a = new Actions(driver);
 					a.click(tabs.getCancel()).build().perform();
 					driver.switchTo().defaultContent();
@@ -102,7 +102,7 @@ public class CommonStepDefinition extends base{
 					tabs.getCancelledButton().click();
 				}
 
-			}
+			}}
 	    } 
 
 	    @And("^close the driver$")
