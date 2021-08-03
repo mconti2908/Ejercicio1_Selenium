@@ -1,4 +1,4 @@
-package MauroC.SeleniumTest;
+package excercises;
 
 import java.io.IOException;
 
@@ -32,7 +32,6 @@ public class service extends base {
 		tabs tabs = new tabs(driver);
 		iframe iframe = new iframe(driver);
 
-
 		hp.getSpaceBar();
 		hp.getService();
 
@@ -51,9 +50,9 @@ public class service extends base {
 						tabs.getNew();
 					}
 				}
-			}
+			
 
-			Thread.sleep(3000L);
+			Thread.sleep(2000L);
 
 			if (iframe.getIframes().size() > 0) {
 				if (iframe.getIframes().size() > 1) {
@@ -62,7 +61,7 @@ public class service extends base {
 					driver.switchTo().frame(0);
 				}
 
-				Thread.sleep(3000L);
+				//Thread.sleep(3000L);
 				Actions a = new Actions(driver);
 				a.click(tabs.getCancel()).build().perform();
 				driver.switchTo().defaultContent();
@@ -74,7 +73,7 @@ public class service extends base {
 				tabs.getCancelledButton().click();
 			}
 
-		}
+		}}
 
 	}
 	

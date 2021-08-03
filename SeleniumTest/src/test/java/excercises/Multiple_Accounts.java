@@ -1,56 +1,42 @@
-package MauroC.SeleniumTest;
+package excercises;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Properties;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import excelDriven.DataDriven;
-import excelDriven.testSample;
 import pageObjects.AccountObjects;
 import pageObjects.homePage;
-import pageObjects.iframe;
-import pageObjects.landingPage;
 import pageObjects.tabs;
 import resources.base;
 
-public class newAccount extends base {
+public class Multiple_Accounts extends base{
 	
 	WebDriver driver;
-	 
 	
-	@BeforeTest
+	
+
+	@BeforeMethod
 	public void initialize() throws IOException {
 		
 		
 		driver = initializeDriver();
 		driver.get(url());
-		
 		logIn();
-		
 	}
 	
-	@Test(dataProvider = "dataprovider")
+	
+	@Test(dataProvider = "InsertarDatos")
 	public void account(
 			String name, String phone, String fax,
-			String account, String Website, String Site) throws InterruptedException, IOException {
-
-		
+			String account, String Website, String Site) throws InterruptedException {
 		homePage hp = new homePage(driver);
 		tabs tabs = new tabs(driver);
 		AccountObjects ao=new AccountObjects(driver);
-        testSample ts=new testSample();
-	
-         ts.getexcel("Rating", 0);
+
 		hp.getSpaceBar();
 		hp.getService();
 			
@@ -62,8 +48,8 @@ public class newAccount extends base {
 			
 		
 		
-	 ao.getRatingClick().click();
-	 ao.SelectItem("Rating", "Warm");
+	// ao.enterObject(ao.Rating);
+	 //ao.SelectItem("Rating", "Warm");
 	 
 	 	
 	
@@ -131,38 +117,29 @@ public class newAccount extends base {
 		
 		ao.selectCal("August", "2022","29","08");
 		
-		ao.clickSandN();
+		ao.clickSandN(); 
+		
+		
 		
 
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void finish()  {
 		
 		
 		driver.close();
 	}
 	
-	@DataProvider
-	public Object[][] dataprovider() {
-
-		Object[][] provider = new Object[1][6];
-		
-		
-		provider[0][0] = "Jorge";
-		provider[0][1] = "+598965463973";
-		provider[0][2] = "No tengo";
-		provider[0][3] = "1294584";
-		provider[0][4] = "mapa.com";
-		provider[0][5] = "jorga";
-		
-
-		return provider;
-
+	
+	@DataProvider(name="InsertarDatos")
+    public Object[][] getDataFromDataprovider(){
+    return new Object[][] 
+    	{
+            { "Mauro", "+59892463973", "No tengo", "2033985", "mconti.com", "mconti" },
+            { "Fabri", "+5989345973", "No tengo", "1053725", "fdominguez.com", "fdominguez" },
+            { "Bhupesh", "+57099955", "no tain", "1832930", "bhopana.com", "rbhopana" }
+        };
 	}
-	
-	
-
-	
 
 }

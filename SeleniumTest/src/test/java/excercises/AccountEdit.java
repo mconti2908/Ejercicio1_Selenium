@@ -1,4 +1,4 @@
-package MauroC.SeleniumTest;
+package excercises;
 
 import static org.testng.Assert.assertEquals;
 
